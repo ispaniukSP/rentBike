@@ -1,0 +1,1 @@
+export { AuthContent } from "./Auth/SignUp/main"; 
