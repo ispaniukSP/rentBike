@@ -5,7 +5,7 @@ import City from './Components/City/City';
 import History from './Components/History/History';
 import { HomeApp } from './Components/Home';
 import { CenterApp } from './Components/Center/index';
-
+import { PaymentApp } from './Components/Payment';
 
 function App() {
   return (
@@ -15,8 +15,9 @@ function App() {
         <Route path="/app"  component={HomeApp} />
         <Route path="/city" exact component={City} />
         <Route path="/center" component={CenterApp} />
+        <Route path="/payment" component={PaymentApp} />
         <Route path="/history" component={History} />
-        <Redirect from="/" to="/app" />
+        <Redirect from="/" to="/auth/signin" />
       </Switch>
     </Router>
   );

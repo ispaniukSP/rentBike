@@ -7,7 +7,7 @@ const StyledLoader = styled.div`
     height: 10px;
     margin: 40px auto;
     border-radius: 50%;
-    background: #fff;
+    ${props => props.color ? `background:${props.color};` : `background: #fff;`}
 `
 
 const loaderVariants = {
@@ -28,10 +28,12 @@ const loaderVariants = {
     }
 }
 
-export const Loader = () => {
+export const Loader = (props) => {
     return(
         <>
-            <StyledLoader as={motion.div}
+            <StyledLoader
+                {...props} 
+                as={motion.div}
                 variants={loaderVariants}
                 animate="animationOne" />
         </>

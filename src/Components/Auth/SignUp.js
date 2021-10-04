@@ -67,7 +67,7 @@ const SignUp = () => {
                 setLoading(false);
                 setError(false);
                 console.log(response)
-                  history.push('/app');
+                  history.push('/city');
               })
               .catch(function (error) {
                 console.log(error);

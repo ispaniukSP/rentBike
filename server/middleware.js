@@ -1,4 +1,18 @@
 const faker = require('faker');
+const multer = require('multer');
+
+
+const DIR = '../src/uploads'
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, DIR)
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  }
+});
+
+const upload = multer({storage: storage})
 
 module.exports = (req, res, next) => {
   if (req.method === 'POST' && req.path === '/login') {
@@ -13,3 +27,13 @@ module.exports = (req, res, next) => {
   }
   next();
 };
+
+module.exports.send = (req, res, next) => {
+  return upload.single('uploads')(req, res, () => {
+    console.log(req)
+    console.log(res)
+
+    if (!req.file) return res.json({ error: "Error" })
+    next();
+  })
+}

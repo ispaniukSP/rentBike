@@ -27,3 +27,11 @@ export const signUpSchema = Yup.object({
     .max(25, "Password should include less than 25 chars")
     .required("Password is required"),
 })
+
+export const historySchema = Yup.object({
+  countbike: Yup.number()
+    .typeError('Please use numbers')
+    .min(1)
+    .max(50)
+    .required('Fill please count of bikes you want to rent'),
+})
