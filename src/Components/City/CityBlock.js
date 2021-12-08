@@ -8,11 +8,12 @@ function CityBlock(props) {
     function sendRequest(){
         axios.get('http://localhost:3002/cities')
         .then(response => {
+            console.log(response)
             const findCityIndex = response.data.findIndex(item => item.city === props.text)
             const getCityId = response.data[findCityIndex].id;
             history.push(`/app/city/${getCityId}`)
         })
-        .catch(e => console.log("Error"))
+        .catch(e => console.log(e))
     }
 
     return (

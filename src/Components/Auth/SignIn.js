@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import * as Styled from "./style";
 import { Flex } from "../Flex/Flex";
 import { withRouter, useHistory } from "react-router-dom";
@@ -8,31 +8,24 @@ import { Field, Form, Formik } from "formik";
 import { signInSchema } from "./schema";
 import { Link } from "react-router-dom";
 import { Loader } from "../Loader";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsersData } from "../../store/actions/user/user.action";
 
 const SignIn = () => {
-  const [load, setLoading] = useState(false);
-  const [userError, setError] = useState(false);
   const history = useHistory();
+  const user = useSelector(state => state.user);
+  const dispatch = useDispatch();
 
-  function errorMessage() {
-    return <Styled.ErrorMessage>Wrong password or email</Styled.ErrorMessage>;
+  const errorMessage = (text) => {
+    return <Styled.ErrorMessage>{!!text ? text : "Wrong password or email"}</Styled.ErrorMessage>;
   }
 
-  function checkUser(response, values) {
-    const checkPassword = () => {
-      const indexElement = response.findIndex(
-        (item) => item.email === values.email
-      );
-      return response[indexElement].password === values.password
-        ? true
-        : setError(true);
-    };
-    const findUser = response.find((item) =>
-      item.email === values.email ? checkPassword() : setError(true)
-    );
-    return findUser;
-  }
+  useEffect(() => {
+    if(user.available) {
+      history.push('/city');
+    } 
+  }, [user.available])
+  
 
   return (
     <Flex width="100%" height="100%" direction="column" align="center">
@@ -56,17 +49,14 @@ const SignIn = () => {
             password: "",
           }}
           validationSchema={signInSchema}
-          onSubmit={async (values) => {
-            setLoading(true);
-            const {data} = await axios.post('http://localhost:3002/login',values)
-            localStorage.setItem('token', data.token);
-            setLoading(false)
+          onSubmit={(values) => {
+            dispatch(getUsersData(values));
           }}
           validateOnBlur={false}
           validateOnChange={false}
         >
           {({ errors }) => {
-            return load ? (
+            return user.loader ? (
               <Loader />
             ) : (
               <Form>
@@ -100,7 +90,7 @@ const SignIn = () => {
                     Send
                   </Button>
                 </Flex>
-                {userError ? errorMessage() : null}
+                {!!user.error ? errorMessage(user?.error?.error) : null}
               </Form>
             );
           }}

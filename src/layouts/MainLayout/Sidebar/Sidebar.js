@@ -17,7 +17,6 @@ export function Sidebar() {
                 <Styled.LinkBlock>
                     <LinkItem link="/city" id='city' text="City" />               
                     <LinkItem link="/history" id='history' text="History" />               
-                    <LinkItem link="/app" id='map' text="Map" />               
                 </Styled.LinkBlock>
                 
                 <Styled.UserBlock>

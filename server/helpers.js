@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 function save(json) {
-  fs.writeFileSync('./data/db.json', JSON.stringify(json));
+  fs.writeFileSync('/db.json', JSON.stringify(json));
 }
 function generateJson(data, isGroup = true) {
   const newJson = {};

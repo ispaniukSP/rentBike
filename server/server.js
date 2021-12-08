@@ -33,26 +33,25 @@ server.post("/center/:id/image", uploadToStorage.single("file"), (req, res) => {
     .send({ path: path.join(__dirname, "..", "temp", req.fileName) });
 });
 
-server.post("/login", async (req, res) => {
+server.post("/users", async (req, res) => {
   const { email, password } = req.body;
-  console.log(req.body)
-  if (!email || !password)
-    return res
-      .status(400)
-      .send({ error: " You need to send email AND password" });
   let db = fs.readFileSync(path.join(__dirname, "db.json"));
   if (db) {
     db = JSON.parse(db);
   }
-  const isUserExist = db.users.find(
-    (el) => el.email === email && el.password === password
-  );
-  if(!isUserExist) {
+  const isUserEmailExist = db.users.findIndex((el) => el.email === email);
+  if(isUserEmailExist < 0) {
     return res
       .status(400)
       .send({ error: "User was not found" });
   } 
-
+  const userCondition = db.users[isUserEmailExist]?.password === password ? db.users[isUserEmailExist] : false;
+  const isUserExist = isUserEmailExist ? userCondition : false;
+  if(!isUserExist){
+    return res
+      .status(400)
+      .send({ error: "Wrong password or email" });
+  }
   const access_token = createToken({email, password})
   
   const {password: user_pass, ...user_data} = isUserExist;
