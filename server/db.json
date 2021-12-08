@@ -143,6 +143,14 @@
       "email": "danil@admin.com",
       "password": "admin123",
       "id": 17
+    },
+    {
+      "firstName": "danil",
+      "lastName": "admin",
+      "userAge": "20",
+      "email": "ispanyuk13@gmail.com",
+      "password": "danil123123",
+      "id": 18
     }
   ],
   "cities": [

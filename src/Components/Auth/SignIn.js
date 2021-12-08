@@ -9,7 +9,7 @@ import { signInSchema } from "./schema";
 import { Link } from "react-router-dom";
 import { Loader } from "../Loader";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsersData } from "../../store/actions/user/user.action";
+import { getUserLogin } from "../../store/actions/user/user.action";
 
 const SignIn = () => {
   const history = useHistory();
@@ -22,6 +22,7 @@ const SignIn = () => {
 
   useEffect(() => {
     if(user.available) {
+      localStorage.setItem("token", user.userInfo.token);
       history.push('/city');
     } 
   }, [user.available])
@@ -50,7 +51,7 @@ const SignIn = () => {
           }}
           validationSchema={signInSchema}
           onSubmit={(values) => {
-            dispatch(getUsersData(values));
+            dispatch(getUserLogin(values));
           }}
           validateOnBlur={false}
           validateOnChange={false}

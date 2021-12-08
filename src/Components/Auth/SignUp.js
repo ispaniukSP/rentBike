@@ -1,22 +1,28 @@
-import React, {useState} from "react";
-import * as Styled from "./style";
-import { Flex } from "../Flex/Flex";
-import { Button } from "../Button/Button";
-import Input from "../Input/Input";
+import { getUserRegister } from "../../store/actions/user/user.action";
+import {withRouter, useHistory, Link} from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 import { Field, Form, Formik } from "formik";
+import React, {useEffect} from "react";
+import { Button } from "../Button/Button";
 import { signUpSchema } from "./schema";
-import { Link } from "react-router-dom";
-import {withRouter, useHistory} from "react-router-dom";
+import { Flex } from "../Flex/Flex";
+import Input from "../Input/Input";
 import { Loader } from "../Loader";
+import * as Styled from "./style";
 
 const axios = require('axios').default;
 
 const SignUp = () => {
-  const [load, setLoading] = useState(false);
-  const [userError, setError] = useState(false)
-
+  const user = useSelector(state => state.user);
+  
+  useEffect(() => {
+    if(user.available) {
+      localStorage.setItem("token", user.userInfo.token);
+      history.push('/city');
+    } 
+  }, [user.available])
+  const dispatch = useDispatch();
   const history = useHistory();
-
 
   function errorMessage () {
     return(
@@ -61,25 +67,15 @@ const SignUp = () => {
           }}
           validationSchema={signUpSchema}
           onSubmit={(values) => {
-            return checkEmail(values) ? setError(true) : ( 
-              axios.post('http://localhost:3002/users', values)
-              .then(function (response) {
-                setLoading(false);
-                setError(false);
-                console.log(response)
-                  history.push('/city');
-              })
-              .catch(function (error) {
-                console.log(error);
-              }))
+            dispatch(getUserRegister(values));
           }}
           validateOnBlur={false}
           validateOnChange={false}
         >
           {({ errors }) => {
-            return load ? (<Loader />) : (
+            return user.loader ? (<Loader />) : (
             <Form>
-                    {userError ? errorMessage() : null}
+                    {!!user.error ? errorMessage(user?.error?.error) : null}
               <Flex position="relative" direction="column">
 
                     <Flex position="relative" width="100%" height="50px" margin="10px 0px" >

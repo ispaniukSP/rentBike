@@ -10,15 +10,27 @@ const router = jsonServer.router(path.join(__dirname, "db.json"));
 const middlewares = jsonServer.defaults();
 const jwt = require('jsonwebtoken');
 const uploadToStorage = require("./multer");
-const SECRET_KEY = '123456789'
-const expiresIn = '1h';
 
-function createToken(payload){
-  return jwt.sign(payload, SECRET_KEY, {expiresIn})
-}
+function verifyToken(req, res, next){
+  const authHeader = req.headers.authorization;
+  if(authHeader){
+    const token = authHeader.split(" ")[1];
 
-function verifyToken(token){
-  return  jwt.verify(token, SECRET_KEY, (err, decode) => decode !== undefined ?  decode : err)
+    jwt.verify(token, "mySecretKey", (err, user) => {
+      if(err){
+        return res
+              .status(400)
+              .send({ error: "Token is not valid!" });
+      }else{
+        req.user = user;
+        next();
+      }
+    });
+  }else{
+    return res
+      .status(400)
+      .send({ error: "You are not authenticated!" });
+  }
 }
 
 server.use(middlewares);
@@ -27,36 +39,45 @@ server.use(bodyParser.json({ limit: "50mb", extended: true }));
 server.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 
 server.post("/center/:id/image", uploadToStorage.single("file"), (req, res) => {
-  console.log(req);
   res
     .status(200)
     .send({ path: path.join(__dirname, "..", "temp", req.fileName) });
 });
 
-server.post("/users", async (req, res) => {
+server.post("/login", async (req, res) => {
   const { email, password } = req.body;
   let db = fs.readFileSync(path.join(__dirname, "db.json"));
   if (db) {
     db = JSON.parse(db);
   }
-  const isUserEmailExist = db.users.findIndex((el) => el.email === email);
-  if(isUserEmailExist < 0) {
-    return res
-      .status(400)
-      .send({ error: "User was not found" });
-  } 
-  const userCondition = db.users[isUserEmailExist]?.password === password ? db.users[isUserEmailExist] : false;
-  const isUserExist = isUserEmailExist ? userCondition : false;
+  const isUserExist = db.users.find((el) => el.email === email && el.password === password);
   if(!isUserExist){
     return res
       .status(400)
       .send({ error: "Wrong password or email" });
+  }else{
+    //Generate access token
+    const {password: user_pass, email: user_email, ...user_data} = isUserExist;
+    const accessToken = jwt.sign({email: user_email, password: user_pass}, "mySecretKey", {expiresIn: "15m",});
+    return res.send({...user_data, token: accessToken});
   }
-  const access_token = createToken({email, password})
-  
-  const {password: user_pass, ...user_data} = isUserExist;
-  // const token = jwt.sign({ foo: 'bar' }, "adadadada", { algorithm: 'RS256'});;
-  return res.send({...user_data, token: access_token});
+});
+
+server.post("/register", async (req, res) => {
+  const {password: user_pass, email: user_email, ...user_data} = req.body;
+  let db = fs.readFileSync(path.join(__dirname, "db.json"));
+  if (db) {
+    db = JSON.parse(db);
+  }
+  const isUserExist = db.users.find((el) => el.email === user_email);
+  if(isUserExist){
+    return res
+      .status(400)
+      .send({ error: "User has already register" });
+  }else{
+    const accessToken = jwt.sign({email: user_email, password: user_pass}, "mySecretKey", {expiresIn: "15m",});
+    return res.send({...user_data ,token: accessToken});
+  }
 });
 
 server.post("/history", async (req, res) => {

@@ -18,5 +18,4 @@ export default (state = initialState, {type, payload, ...action}) => {
         default:
             return state
     }
-
 }
