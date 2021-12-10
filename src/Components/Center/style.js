@@ -3,9 +3,12 @@ import styled from "styled-components"
 
 export const StyledCenter = styled.div`
     width: 100%;
-    min-height: 80vh;
+    min-height: 100vh;
     background-color: #fffff3;
     font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 export const StyledWrapper = styled.div`
     width: 100%;

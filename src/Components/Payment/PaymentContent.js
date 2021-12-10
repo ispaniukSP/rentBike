@@ -14,7 +14,7 @@ import * as Styled from './style'
 import InfoBike from './InfoBike/InfoBike'
 import axios from 'axios'
 import { Field, Form, Formik } from 'formik'
-import { Loader } from '../Loader'
+import { AppLoader } from '../AppLoader'
 
 const stripeKey = loadStripe('pk_test_51Jcol7DphoWPHqYkK2gqxuZADcnjVy3ElzfHuupRhyWMzGjPVotz3uRYnJpSS9e0vUiXjhVT5Iz9WwnhUpNrU4Kh00UZZYeDZi')
 export default function PaymentContent() {
@@ -104,7 +104,7 @@ export default function PaymentContent() {
                                 <Styled.PaymentButton type='submit'>Send</Styled.PaymentButton>
                             </Styled.SendForm>
                         </Form>
-                    ) : <Loader color='#111' />;
+                    ) : <AppLoader color='#111' />;
                 }}
             </Formik>
        </Styled.PaymentWrapper>

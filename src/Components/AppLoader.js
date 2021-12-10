@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import Loader from "react-loader-spinner";
 import styled from 'styled-components'
 
 const StyledLoader = styled.div`
@@ -28,14 +28,13 @@ const loaderVariants = {
     }
 }
 
-export const Loader = (props) => {
+export const AppLoader = (props) => {
     return(
-        <>
-            <StyledLoader
-                {...props} 
-                as={motion.div}
-                variants={loaderVariants}
-                animate="animationOne" />
-        </>
+        <Loader
+            type="Puff"
+            color="orange"
+            height={100}
+            width={100}
+      />
     )
 }

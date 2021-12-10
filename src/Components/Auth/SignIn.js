@@ -7,7 +7,7 @@ import Input from "../Input/Input";
 import { Field, Form, Formik } from "formik";
 import { signInSchema } from "./schema";
 import { Link } from "react-router-dom";
-import { Loader } from "../Loader";
+import { AppLoader } from "../AppLoader";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserLogin } from "../../store/actions/user/user.action";
 
@@ -58,7 +58,7 @@ const SignIn = () => {
         >
           {({ errors }) => {
             return user.loader ? (
-              <Loader />
+              <AppLoader />
             ) : (
               <Form>
                 <Flex position="relative" direction="column">

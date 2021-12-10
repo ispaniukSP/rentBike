@@ -7,10 +7,8 @@ import { Button } from "../Button/Button";
 import { signUpSchema } from "./schema";
 import { Flex } from "../Flex/Flex";
 import Input from "../Input/Input";
-import { Loader } from "../Loader";
+import { AppLoader } from "../AppLoader";
 import * as Styled from "./style";
-
-const axios = require('axios').default;
 
 const SignUp = () => {
   const user = useSelector(state => state.user);
@@ -21,6 +19,7 @@ const SignUp = () => {
       history.push('/city');
     } 
   }, [user.available])
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -30,21 +29,6 @@ const SignUp = () => {
         Email has already added
       </Styled.ErrorMessage>
     )
-  }
-
-  function checkEmail (values) {
-    const checkCondition = (response, values) => {
-      return response.find(item => {
-        console.log('item',item.email)
-        console.log('values',values.email) 
-        console.log(item.email === values.email)       
-        return item.email === values.email
-      })
-    }
-
-    fetch('http://localhost:3002/users', values)
-              .then(response => response.json())
-              .then(response => checkCondition(response, values))
   }
 
     return(
@@ -73,7 +57,7 @@ const SignUp = () => {
           validateOnChange={false}
         >
           {({ errors }) => {
-            return user.loader ? (<Loader />) : (
+            return user.loader ? (<AppLoader />) : (
             <Form>
                     {!!user.error ? errorMessage(user?.error?.error) : null}
               <Flex position="relative" direction="column">

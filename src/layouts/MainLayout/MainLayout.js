@@ -3,6 +3,7 @@ import { Sidebar } from './Sidebar/Sidebar';
 import Burger from './BurgerIcon/Burger';
 import * as Styled from './style';
 import IconsComponent from './IconsComponent/IconsComponent';
+import { Flex } from '../../Components/Flex/Flex';
 
 export const MenuContext = createContext({
     isMenuOpen: true,
@@ -18,11 +19,13 @@ export default function MainLayout() {
 
     return (
             <MenuContext.Provider value={{isMenuOpen, toggleMenuMode}}>
+                <Flex align="center" justify="center">
                     <Styled.StyledHeader > 
                         <IconsComponent id={'bike'} />
                     </Styled.StyledHeader>
                         <Burger />
                         <Sidebar />
+                </Flex>
             </MenuContext.Provider>
     )
 }

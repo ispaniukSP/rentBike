@@ -8,6 +8,8 @@ export const StyledBurgerField = styled.div`
     background-color: transparent;
     position: fixed;
     z-index: 5;
+    top: 0;
+    left:0;
     margin-left: 7px;
     margin-top: 4px;
     transform-origin: 16px 11px;

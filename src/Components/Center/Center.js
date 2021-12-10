@@ -1,35 +1,34 @@
 import axios from 'axios';
 import React, { useEffect, useState }  from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useRouteMatch } from 'react-router'
 import MainLayout from '../../layouts/MainLayout/MainLayout'
+import { getCurrentCenter } from '../../store/actions/center/center.action';
+import { Flex } from '../Flex/Flex';
+import { AppLoader } from '../AppLoader';
 import CenterContent from './CenterContent';
 import * as Styled from './style'
 
 export default function Center() {
-    const [center, setCenter] = useState()
-    const history = useHistory();
-
+    const centerSel = useSelector(state => state.center)
+    const dispatch = useDispatch();
     const match = useRouteMatch();
-    useEffect(async function() {
-        try{
-            if (match.params.centerId) {
-                const { data } = await axios.get(
-                    `http://localhost:3002/centers/${match.params.centerId}`
-                );
-                if (!data.id) {
-                    history.push(`/center/${match.params.centerId}`);
-                } else {
-                    setCenter(data);
-                }
-            }
+    useEffect(() => {
+        if(match.params.centerId){
+            dispatch(getCurrentCenter(match.params.centerId))
         }
-        catch{}
     }, [match.params.centerId])
 
     return (
         <Styled.StyledCenter>
             <MainLayout />
-            <CenterContent info={center} />
+            <Flex width="100%" height="70%" align="center" justify="center">
+                {centerSel.loader ?
+                (<Flex >
+                    <AppLoader />
+                </Flex>) 
+                : (<CenterContent info={centerSel.currentCenter} />) }
+            </Flex>
         </Styled.StyledCenter>
     )
 }

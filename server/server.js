@@ -56,7 +56,6 @@ server.post("/login", async (req, res) => {
       .status(400)
       .send({ error: "Wrong password or email" });
   }else{
-    //Generate access token
     const {password: user_pass, email: user_email, ...user_data} = isUserExist;
     const accessToken = jwt.sign({email: user_email, password: user_pass}, "mySecretKey", {expiresIn: "15m",});
     return res.send({...user_data, token: accessToken});

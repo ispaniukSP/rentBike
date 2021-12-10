@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
+import { getCity } from '../../store/actions/city/city.action';
 import { Flex } from '../Flex/Flex'
 import CityBlock from './CityBlock'
 import * as Styled from './style'
 
 export default function CityPoint() {
+
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+        dispatch(getCity())
+    }, [])
+
     return (
         <Styled.CityPointWrapper>
             <Flex width="100%" height="100%" mTop="5%" align="center" direction="column">
