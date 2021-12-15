@@ -1,6 +1,6 @@
 const faker = require('faker');
 const multer = require('multer');
-
+const jwt = require('jsonwebtoken');
 
 const DIR = '../src/uploads'
 const storage = multer.diskStorage({
@@ -12,21 +12,47 @@ const storage = multer.diskStorage({
   }
 });
 
-const upload = multer({storage: storage})
+
+// module.exports = (req, res, next) => {
+//   if(req.headers['x-header']){
+//     const 
+//   }
+//   next()
+// }
 
 module.exports = (req, res, next) => {
-  if (req.method === 'POST' && req.path === '/login') {
-    if (req.body.userName === 'Admin' && req.body.password === 'admin!') {
-      res.status(200).json({
-        firstName: 'Test',
-        lastName: 'Testovich',
-        token: faker.random.uuid(),
-      });
-    }
-    res.status(400).json({ message: 'Wrong credentials' });
+  if(req.headers.authorization){
+    const token = req.headers.authorization;
+    jwt.verify(token, "mySecretKey", (err, decoded) => {
+      if (err) {
+        const refreshToken = req.headers["x-header"];
+        jwt.verify(refreshToken, 'mySecretKey', (err, decoded) => {
+          if(err){
+            console.log(err)
+            console.log("remove")
+            return res
+            .status(401)
+            .send({ error: "Refresh token expired" });
+          }else{
+            console.log("add")
+            const accessToken = jwt.sign({email: decoded.email}, "mySecretKey", {expiresIn: 60});
+            const refreshToken = jwt.sign({email: decoded.email}, "mySecretKey", {expiresIn: 65});
+            res.setHeader('Access-Control-Allow-Auth',accessToken);
+            res.setHeader('Access-Control-Allow-Headers',refreshToken);
+            next()
+          }
+        })
+      } else {
+        req.decoded = decoded;
+        next();
+      }
+    });
+  }else{
+    next();
   }
-  next();
-};
+} 
+
+const upload = multer({storage: storage})
 
 module.exports.send = (req, res, next) => {
   return upload.single('uploads')(req, res, () => {

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
-import { getCity } from '../../store/actions/city/city.action';
-import { Flex } from '../Flex/Flex'
+import { getCities } from '../../store/actions/city/city.action';
+import { Flex } from '../../components/Flex/Flex'
 import CityBlock from './CityBlock'
 import * as Styled from './style'
 
@@ -10,7 +10,7 @@ export default function CityPoint() {
     const dispatch = useDispatch();
     
     useEffect(() => {
-        dispatch(getCity())
+        dispatch(getCities())
     }, [])
 
     return (

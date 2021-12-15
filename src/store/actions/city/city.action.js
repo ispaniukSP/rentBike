@@ -1,30 +1,31 @@
-import axios from 'axios';
+import instance from '../../../api';
 
-const getCityRequest = () => ({
+const getCitiesRequest = () => ({
     type: "GET_CITIES_REQUEST",
 })
 
-const getCitySuccess = (payload) => ({
+const getCitiesSuccess = (payload) => ({
     type: "GET_CITIES_SUCCESS",
     payload: [
         ...payload
     ]
 })
 
-const getCityFailure = (error) => ({
+const getCitiesFailure = (error) => ({
     type: "GET_CITIES_FAILURE",
     payload:{
         ...error,
     }
 })
 
-export const getCity = () => async dispatch => {
+export const getCities = () => async dispatch => {
     try{
-        dispatch(getCityRequest());
-        const { data } = await axios.get('http://localhost:3002/cities');
-        dispatch(getCitySuccess(data));
+        dispatch(getCitiesRequest());
+        const cityResponse = await instance.get('/cities');
+        console.log("cityResponse",cityResponse)
+        dispatch(getCitiesSuccess(cityResponse.data));
     }catch(err){
-        dispatch(getCityFailure(err)); 
+        dispatch(getCitiesFailure(err.response)); 
     }
 }
 
@@ -49,7 +50,7 @@ const getCurrentCityFailure = (error) => ({
 export const getCurrentCity = (cityId) => async dispatch => {
     try{
         dispatch(getCurrentCityRequest())
-        const { data } = await axios.get(`http://localhost:3002/cities/${cityId}`)
+        const { data } = await instance.get(`/cities/${cityId}`)
         dispatch(getCurrentCitySuccess(data))
     }catch(err){
         console.log(err)

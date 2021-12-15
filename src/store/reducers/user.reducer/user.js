@@ -3,6 +3,7 @@ import userType from "../../actions/user/user.type"
 const initialState = {
     userInfo: null,
     available: false,
+    token: false,
     loader: false,
     error: null,
 }
@@ -15,6 +16,8 @@ export default (state = initialState, {type, payload, ...action}) => {
             return {...state,userInfo: payload, loader: false, available: true}
         case userType.GET_USERS_FAILURE:
             return {...state,loader: false, error: payload, available: false}
+        case userType.GET_USER_ACCESS:
+            return {...state, token: payload}
         default:
             return state
     }

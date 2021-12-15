@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex } from "../../Components/Flex/Flex";
+import { Flex } from "../../components/Flex/Flex";
 import * as Styled from "./style";
 
 export const AuthLayout = ({ children }) => {

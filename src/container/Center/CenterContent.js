@@ -1,6 +1,7 @@
 import React from 'react'
-import { Flex } from '../Flex/Flex'
+import { Flex } from '../../components/Flex/Flex'
 import * as Styled from './style'
+
 export default function CenterContent(props) {
     let price = props?.info?.price;
     price = price % 100 === 0 ? price/100 + '.00' : price/100;
@@ -17,7 +18,7 @@ export default function CenterContent(props) {
 
                 <Styled.PriceComponents direction="column">
                     <Styled.PriceComponent><Styled.PriceTitle>Count bike:</Styled.PriceTitle> {props?.info?.countBike}</Styled.PriceComponent>
-                    <Styled.PriceComponent><Styled.PriceTitle>Price: </Styled.PriceTitle> {price} HRN for hour</Styled.PriceComponent>
+                    <Styled.PriceComponent><Styled.PriceTitle>Price: </Styled.PriceTitle> {price} USD for hour</Styled.PriceComponent>
                 </Styled.PriceComponents>
             </Flex>
 

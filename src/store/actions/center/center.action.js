@@ -1,4 +1,5 @@
 import axios from "axios"
+import instance from "../../../api"
 
 const centersRequest = () => ({
     type: "GET_CENTERS_ID_REQUEST",
@@ -19,8 +20,8 @@ const centersFailure = (error) => ({
 export const getCenters = (cityId) => async dispatch => {
     try{
         dispatch(centersRequest())
-        const { data } = await axios.get(
-            `http://localhost:3002/centers?cityId=${cityId}`
+        const { data } = await instance.get(
+            `/centers?cityId=${cityId}`
         );
         dispatch(centersSuccess(data))
     }catch(err){
@@ -47,8 +48,8 @@ const currentCentersFailure = (error) => ({
 export const getCurrentCenter = (cityId) => async dispatch => {
     try{
         dispatch(currentCenterRequest())
-        const { data } = await axios.get(
-            `http://localhost:3002/centers/${cityId}`
+        const { data } = await instance.get(
+            `/centers/${cityId}`
         );
         dispatch(currentCentersSuccess(data))
     }catch(err){

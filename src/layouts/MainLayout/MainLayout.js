@@ -3,7 +3,7 @@ import { Sidebar } from './Sidebar/Sidebar';
 import Burger from './BurgerIcon/Burger';
 import * as Styled from './style';
 import IconsComponent from './IconsComponent/IconsComponent';
-import { Flex } from '../../Components/Flex/Flex';
+import { Flex } from '../../components/Flex/Flex';
 
 export const MenuContext = createContext({
     isMenuOpen: true,

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom';
+import tokenService from './api/tokenService';
 
 export default function ProtectedRoute(props) {
     const Component = props.component;
-    const isAuth = localStorage.getItem('token');
-    return isAuth ? (
+    return !!tokenService.getAccessToken() ? (
         <Component />
     ) 
     : (<Redirect to={{pathname: '/auth/signin'}} />)

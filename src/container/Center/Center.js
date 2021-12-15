@@ -1,11 +1,10 @@
-import axios from 'axios';
 import React, { useEffect, useState }  from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useRouteMatch } from 'react-router'
+import { useRouteMatch } from 'react-router'
 import MainLayout from '../../layouts/MainLayout/MainLayout'
 import { getCurrentCenter } from '../../store/actions/center/center.action';
-import { Flex } from '../Flex/Flex';
-import { AppLoader } from '../AppLoader';
+import { Flex } from '../../components/Flex/Flex';
+import { AppLoader } from '../../components/AppLoader';
 import CenterContent from './CenterContent';
 import * as Styled from './style'
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CalendarField = styled.div`
     padding-top: 40px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 `
 export const CalendarTitle = styled.span`

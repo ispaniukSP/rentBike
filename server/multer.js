@@ -10,10 +10,11 @@ function checkFileType(file) {
   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
   // Check mime
   const mimetype = filetypes.test(file.mimetype);
-  if (mimetype && extname) {
-    return true;
-  }
-  return false;
+  // if (mimetype && extname) {
+  //   return true;
+  // }
+  return mimetype && extname
+  // return false;
 }
 const discStorage = multer.diskStorage({
   destination(req, file, cb) {

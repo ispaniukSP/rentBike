@@ -151,6 +151,14 @@
       "email": "ispanyuk13@gmail.com",
       "password": "danil123123",
       "id": 18
+    },
+    {
+      "firstName": "tester",
+      "lastName": "tester",
+      "userAge": "23",
+      "email": "tester123@gmail.com",
+      "password": "tester",
+      "id": 19
     }
   ],
   "cities": [
@@ -192,7 +200,7 @@
       "details": "14th station of the Kharkiv metro. Located on the Salt line, the final. The next station is the University. It is connected with the Maidan station by the Constitution of the Kholodnohirsko-Zavodska line and forms a single complex with it. The station is named after the Kharkiv Historical Museum named after MF Sumtsov, which is located near the exit from the station. Opened on August 10, 1984",
       "cityId": 1,
       "countBike": 20,
-      "price": 2000
+      "price": 150
     },
     {
       "id": 2,
@@ -206,7 +214,7 @@
       "details": "The Tsentralnyi Rynok is a station on Kharkiv Metro's Kholodnohirsko–Zavodska Line. The station was opened on 23 August 1975. It is located in the central part of Kharkiv, near the №2 bus station and the Tsentralny Rynok, literally Central Market, for which the station is named",
       "cityId": 1,
       "countBike": 20,
-      "price": 2000
+      "price": 150
     },
     {
       "id": 3,
@@ -220,7 +228,7 @@
       "details": "The University is the 15th station of the Kharkiv metro. Located on the Saltovskaya line between the stations Historical Museum and Pushkin. Opened on August 10, 1984 ",
       "cityId": 1,
       "countBike": 20,
-      "price": 2000
+      "price": 150
     },
     {
       "id": 4,
@@ -234,7 +242,7 @@
       "details": "Pushkinskaya is the deepest station of the Kharkiv metro. Vertical lifting height - 30 meters. An inscription above the platform of Pushkin station, stylized under the signature of Alexander Pushkin. The inscription of the station, after the collapse of the USSR, was not replaced by the Ukrainian language, as at all stations (as well as the inscription Kyivska). There are 24 wall bas-reliefs at the station",
       "cityId": 1,
       "countBike": 20,
-      "price": 2000
+      "price": 150
     },
     {
       "id": 5,
@@ -248,7 +256,7 @@
       "details": "The Botanical Garden is the 27th station of the Kharkiv metro. Located on the Alexeevskaya line between Naukova stations and August 23. Opened on August 21, 2004. The decoration of the station is made in light green shades. The track walls are decorated with stamped metal-enamel elements. The floor at the station is made of gray granite, the columns are decorated with light green mosaic. Eight mosaic panels with floral patterns adorn the track walls of the station - four panels on each side. The walls of both lobbies are decorated with lightboxes with photos of Kharkiv taken on the occasion of the 350th anniversary of the city.",
       "cityId": 1,
       "countBike": 20,
-      "price": 2000
+      "price": 150
     },
     {
       "id": 6,
@@ -262,7 +270,7 @@
       "details": "Defenders of Ukraine (until May 17, 2016 - Uprising Square) - the 23rd station of the Kharkiv metro. It is located on the Oleksiyivska line between the metro stations and Architect Beketov. Opened on May 6, 1995. On May 17, 2016, during the fourth phase of decommunization in Ukraine, by the decision of the Kharkiv Regional State Administration, the metro station was renamed Defenders of Ukraine",
       "cityId": 1,
       "countBike": 20,
-      "price": 2000
+      "price": 150
     },
     {
       "id": 7,
@@ -276,7 +284,7 @@
       "details": "The monument was created by architects M. Zharikov, R. Kukharenko and sculptor V. Shvetsov. Funds for the construction of the monument were collected by citizens of the city of Kiev, as well as residents of the village of Kulchitsy in the Lviv region , from where Sagaidachny was born",
       "cityId": 1,
       "countBike": 20,
-      "price": 2000
+      "price": 150
     },
     {
       "id": 8,
@@ -290,7 +298,7 @@
       "details": "Maxim Gorky Central Park for Culture and Recreation is a Kharkiv city park consisting of over 130 hectares of land. It is bounded in the southern corner by Vesnina Street in the east - Sumska Street to the north - the so-called elite private settlement construction, and in the west - Dynamo street corner and Novgorod.",
       "cityId": 1,
       "countBike": 20,
-      "price": 2000
+      "price": 150
     },
     {
       "id": 9,
@@ -304,7 +312,7 @@
       "details": "Maxim Gorky Central Park for Culture and Recreation is a Kharkiv city park consisting of over 130 hectares of land. It is bounded in the southern corner by Vesnina Street in the east - Sumska Street to the north - the so-called elite private settlement construction, and in the west - Dynamo street corner and Novgorod.",
       "cityId": 1,
       "countBike": 20,
-      "price": 2000
+      "price": 150
     },
     {
       "id": 10,
@@ -318,7 +326,7 @@
       "details": "Sarzhyn Yar is a beam (ravine) more than 12 km long with gentle slopes in the city of Kharkiv. Natural monument of local significance. Separates Pavlove Pole (from the west) from Nagorny district (from the east). Known source of mineral water. Sarzhin ravine begins in the Forest Park near Pyatihatki and, deepening, goes from northeast to southwest to the river Lopan.At the bottom of the ravine from Oleksiyivka flowed Sarzhin stream, a right tributary of the river Sarzhinka. The stream was backfilled when laying the bottom of the ravine in 2006, the transmission line to Pyatihatki and is now preserved in fragments.",
       "cityId": 1,
       "countBike": 20,
-      "price": 2000
+      "price": 150
     },
     {
       "id": 11,
@@ -332,7 +340,7 @@
       "details": "The embankment of the Kharkiv River, which is chained to granite on this section. It is located between two bridges - Kharkiv and Gorbaty (named after Yu. Chigirin). About 10-15 minutes walk from the metro stations University and Historical Museum. Until 1989 it was also called Zhdanov embankment. The road and sidewalks are asphalted. Active car traffic. Here are / were: Regional pharmacy skald, Main Department of Statistics in the Kharkiv region, restaurant Bosphorus, shops",
       "cityId": 1,
       "countBike": 20,
-      "price": 2000
+      "price": 150
     },
     {
       "id": 12,
@@ -346,7 +354,7 @@
       "details": "Popular city park with a paved walking track, a playground, cafes & a restaurant.",
       "cityId": 2,
       "countBike": 20,
-      "price": 2540
+      "price": 220
     },
     {
       "id": 13,
@@ -360,7 +368,7 @@
       "details": "Langeron is located very close to the city and occupies a picturesque place by the sea, but due to the inability of the owner of this area to dispose of natural gifts has an abandoned appearance. From the side of the city to Langeron adjoins the magnificent Alexander Park, which was named in memory of Alexander II, who approved the plan of the park and personally planted an oak tree here in 1875.",
       "cityId": 2,
       "countBike": 20,
-      "price": 2540
+      "price": 220
     },
     {
       "id": 14,
@@ -374,7 +382,7 @@
       "details": "Serene arboretum with a pond & play areas, popular for walks, family picnics & photography.",
       "cityId": 2,
       "countBike": 20,
-      "price": 2540
+      "price": 220
     },
     {
       "id": 15,
@@ -388,7 +396,7 @@
       "details": "Arcadia is a resort district of Odessa. Located in the coastal part of the city near the 5th - 7th stations of the Fountain Road. Famous park of the same name and beach. The area got its name from the mountainous region of Greece - Arcadia, which, according to legend, is a place of complete happiness, peace, tranquility - an idyllic place on earth.",
       "cityId": 2,
       "countBike": 20,
-      "price": 2540
+      "price": 220
     },
     {
       "id": 16,
@@ -402,7 +410,7 @@
       "details": "On the map of the city, the street appeared in 1811 under the name Gymnasium. The street was named after Jose de Ribas in 1812, according to the location of his house on this street, where his brother, Felix de Ribas, later lived. With the coming to power of the Communists, the name of the street was changed to Lassalle (since 1920), and after the death in 1938 of Chkalov - Chkalov (since 1939). The historical name was returned with the incorporation of Odessa into the Kingdom of Romania in 1941, and by a strange coincidence, it remained after the return of the Bolsheviks.",
       "cityId": 2,
       "countBike": 20,
-      "price": 2540
+      "price": 220
     },
     {
       "id": 17,
@@ -416,7 +424,7 @@
       "details": "Petrivska Alley is a street in the Pechersk District of Kyiv, Pechersk. It runs from Mykhailo Hrushevskoho Street to Parkova Road.",
       "cityId": 3,
       "countBike": 20,
-      "price": 2999
+      "price": 250
     },
     {
       "id": 18,
@@ -430,7 +438,7 @@
       "details": "On the map of the city, the street appeared in 1811 under the name Gymnasium. The street was named after Jose de Ribas in 1812",
       "cityId": 3,
       "countBike": 20,
-      "price": 2999
+      "price": 250
     },
     {
       "id": 19,
@@ -444,7 +452,7 @@
       "details": "The Kyiv Zoo was first founded in 1909 by the Nature Lovers Society and was financed by various private donations. During its first years in business, the zoo experienced some hardships and therefore, did not contain many animals, just 17 different types. During the first winter the zoo was opened, the animals had to be kept in the food storage of the main Kyiv railway station, as the zoo's founders had not found a suitable shelter to keep the animals in during cold weather.",
       "cityId": 3,
       "countBike": 20,
-      "price": 2999
+      "price": 250
     },
     {
       "id": 20,
@@ -458,7 +466,7 @@
       "details": "The Mezhyhirya Residence is an estate in Ukraine where Viktor Yanukovych lived when he was Prime Minister and then President of Ukraine and is now a museum displaying Yanukovych's luxurious lifestyle.[1][2] Yanukovych lived in the estate from 2002 to 21 February 2014, when he fled the country during the 2014 Ukrainian revolution",
       "cityId": 3,
       "countBike": 20,
-      "price": 2999
+      "price": 250
     },
     {
       "id": 21,
@@ -472,7 +480,7 @@
       "details": "Holosiivska Street is a street in Holosiivskyi district of Kyiv, Holosiivska district, Demiivka. It runs from Nauki Avenue to Holosiivska Square. Kovelska, Tsymbaliv Yar, Shkilna, Dobryi Shlyakh, Viktor Zabila and Maksym Rylsky streets, Polotskyi, Keramichnyi and Holosiivskyi lanes are connected",
       "cityId": 3,
       "countBike": 20,
-      "price": 2999
+      "price": 250
     },
     {
       "id": 22,
@@ -486,103 +494,10 @@
       "details": "Peremohy Square is a square in the Shevchenkivskyi district of Kyiv, located between Peremohy Avenue, Taras Shevchenko Boulevard, Bulvarno-Kudryavska, Zolotoustivska, Dmytrivska, Oles Honchar, Saksaganskoho and Starovokzalna streets.",
       "cityId": 3,
       "countBike": 20,
-      "price": 2999
+      "price": 250
     }
   ],
   "history": [
-    {
-      "id": "pm_1Jds4vDphoWPHqYkIviyZYqg"
-    },
-    {
-      "id": "pm_1Jds8IDphoWPHqYkl1nOu68n"
-    },
-    {
-      "id": "pm_1JdsFqDphoWPHqYkEGS3oXPq",
-      "amount": 4
-    },
-    {
-      "id": "pm_1JdsLdDphoWPHqYkCj43Qnho",
-      "amount": 4
-    },
-    {
-      "id": "pm_1JdsQmDphoWPHqYkJW0ZlZOA",
-      "amount": 4
-    },
-    {
-      "id": "pm_1JdsSJDphoWPHqYkZcg4vlEA",
-      "amount": 4
-    },
-    {
-      "id": "pm_1JdsWDDphoWPHqYkSC58vrNq",
-      "amount": 5
-    },
-    {
-      "id": "pm_1JdsdhDphoWPHqYkNHhb8p9S",
-      "amount": 6
-    },
-    {
-      "id": "pm_1JeyagDphoWPHqYkIPq6qVEC",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1JeycZDphoWPHqYkh9AU9nhO",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1JeyjCDphoWPHqYk6NU1Znoz",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1Jez0hDphoWPHqYk3iAOCIld",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1Jez42DphoWPHqYkUt60m7RE",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1Jez54DphoWPHqYkut3HYxgV",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1Jez5hDphoWPHqYko0h9mG2u",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1Jez5wDphoWPHqYkvrOQ4hQS",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1Jez7fDphoWPHqYk0HUmDPSb",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1Jez9JDphoWPHqYkraJd72ol",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1JezAHDphoWPHqYkpfwjrNYU",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1JezBiDphoWPHqYkn6EaTUfJ",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1JezEuDphoWPHqYk44uYgLBk",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1JezFLDphoWPHqYkUOAnUP4q",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1JezGxDphoWPHqYkf6FNBk2F",
-      "amount": 6000
-    },
-    {
-      "id": "pm_1Jf0ekDphoWPHqYkhpOOUhPv",
-      "amount": 600
-    }
+   
   ]
 }

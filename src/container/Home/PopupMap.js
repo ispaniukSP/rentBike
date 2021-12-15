@@ -1,6 +1,6 @@
 import React from "react";
 import { Popup } from "react-map-gl";
-import { Flex } from "../Flex/Flex";
+import { Flex } from "../../components/Flex/Flex";
 import * as Styled from "./style";
 
 export default function PopupMap ({info, ...props}) {

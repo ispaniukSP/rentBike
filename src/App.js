@@ -1,16 +1,17 @@
 import React from 'react';
-import Auth from './Components/Auth/Auth';
+import Auth from './container/Auth/Auth';
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import City from './Components/City/City';
-import History from './Components/History/History';
-import { HomeApp } from './Components/Home';
-import { CenterApp } from './Components/Center/index';
-import { PaymentApp } from './Components/Payment';
+import City from './container/City/City';
+import History from './container/History/History';
+import { HomeApp } from './container/Home';
+import { CenterApp } from './container/Center/index';
+import { PaymentApp } from './container/Payment';
 import ProtectedRoute from './ProtectedRoute';
+import { NotFound } from './container/404';
 
 function App() {
   return (
-    <Router path="*" exact={true} component={Auth}>
+    <Router path="*" exact={true} component={NotFound}>
       <Switch>
         <Route path="/auth" component={Auth} />
         <ProtectedRoute path="/app"  component={HomeApp} />
